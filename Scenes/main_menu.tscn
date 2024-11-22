@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwafookxoqofv"]
+
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_b4n7d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5im7v"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b4n7d")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+modulate = Color(0.473607, 0.665052, 0.91749, 1)
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.419608)
+theme_override_font_sizes/normal_font_size = 100
+theme_override_styles/fill = SubResource("StyleBoxEmpty_5im7v")
+bbcode_enabled = true
+text = "[center]Hex Run[/center]"
+fit_content = true
+tab_size = 0
+context_menu_enabled = true
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
